@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/bundle.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>
+                这是含有插值语法的句子：
+                <p>Hello! Welcome to Simplified {{msg}} !</p>
+            </li>
+            <li>
+                这是含有指令 s-text 属性的句子：
+                <p s-text="msg"></p>
+            </li>
+            <li>
+                <p>s-model 绑定属性，表单内容改变，上面显示也会发生变化：</p>
+                <input type="text" s-model="msg">
+            </li>
+            <li>
+                <p s-text="num"></p>
+                <button @click="multiply2">点我数字乘2</button>
+            </li>
+            <li><button @click="handleClick">点我弹出对话框</button></li>
+        </ul>
+
+
+
+
+    </div>
+    <script>
+        var vm = new MVVM({
+            el: '#app',
+            data: {
+                msg: 'MVVM',
+                num: 11,
+                arr: [11, 22, 33],
+                friends: {
+                    name: 'tom',
+                    age: '20'
+                }
+            },
+            methods: {
+                handleClick() {
+                    alert('Welcome to Simplified MVVM!')
+                },
+                multiply2() {
+                    this.num *= 2;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
