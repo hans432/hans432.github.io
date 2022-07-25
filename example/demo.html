@@ -1,0 +1,48 @@
+<!--
+ * @Author: error: git config user.name && git config user.email & please set dead value or install git
+ * @Date: 2022-07-20 20:24:16
+ * @LastEditors: error: git config user.name && git config user.email & please set dead value or install git
+ * @LastEditTime: 2022-07-20 22:17:03
+ * @FilePath: \Simplified_MVVM\example\demo.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../dist/bundle.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>111{{msg + 123}}222</p>
+        <p s-text="msg"></p>
+        <input type="text" s-model="arr[0]">
+        <button @click="handleClick">click</button>
+    </div>
+    <script>
+        var vm = new MVVM({
+            el: '#app',
+            data: {
+                msg: 'hello World',
+                num: 11,
+                arr: [11,22,33],
+                friends: {
+                    name: 'tom',
+                    age: '20'
+                }
+            },
+            methods: {
+                handleClick() {
+                    this.friends.age = 23;
+                    //this.arr[0] = 66;
+                    //this.num++;
+                    console.log(this.msg, this.num, this.friends)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
